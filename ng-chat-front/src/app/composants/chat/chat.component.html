@@ -1,0 +1,24 @@
+
+
+  <div class="chatcontainer">
+    <div class="">
+      <div class="">
+        <input class="username-input" [(ngModel)]="username" name="username" />
+      </div>
+      <div class="containertext">
+        <div class=""
+             *ngFor="let msg of messages"
+        >
+          <div class="message">
+            <strong class="mb-1"><p>{{msg.username}} :{{msg.message}}</p></strong>
+          </div>
+          <!-- <div class=""><p></p></div> -->
+        </div>
+      </div>
+    </div>
+    <form (submit)="sendMessage()">
+      <input class="form-control message-input" placeholder="Write a message" [value]="message"
+             (change)="message = $any($event.target).value || ''"
+      />
+    </form>
+  </div>
